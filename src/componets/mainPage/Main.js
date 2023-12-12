@@ -18,7 +18,7 @@ import Img from "../Windows/Img";
 import { CopyToClipboard } from 'react-copy-to-clipboard';
 
 
-const Main = ({ id }) => {
+const Main = ({ id, signOut }) => {
     const margin = 5;
     const [createWin, setCreateWin] = useState(false)
     const [deleteWin, setDeleteWin] = useState(false)
@@ -232,6 +232,8 @@ const Main = ({ id }) => {
                     </CopyToClipboard>
 
                 </div>
+                <button className="out"
+                onClick={signOut}>Sign Out</button>
 
 
                 {viewWin && <div className="view">

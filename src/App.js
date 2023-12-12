@@ -20,6 +20,12 @@ function App() {
     localStorage.setItem("id", Id)
   }
 
+  const signOut = () => {
+    setLogin(false)
+    localStorage.setItem("login", false)
+    
+  }
+
   
 
 
@@ -27,7 +33,7 @@ function App() {
     createRoutesFromElements(
       <Route element={<Home login={login} />}>
         <Route index element = {<LoginPage enter={enter} setId={setId} login={login}/>} />
-        <Route path="home" element={<Main id={id}/>}>
+        <Route path="home" element={<Main id={id} signOut = {signOut}/>}>
         </Route>
         <Route path="folder" element={<Folder/>}/>
       </Route>
