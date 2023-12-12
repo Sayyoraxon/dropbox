@@ -9,7 +9,7 @@ import { useEffect, useState } from "react";
 import FolderWin from "./FolderWin.js";
 import Img from "./Img";
 
-const Folderwin = ({ foldr, path, dirName, setPut, setDocName, setUser, margin, createWin, setDelFile, setDelDir, setDelPut, setDelId, setDelUser, deletedPut, deletedDir, deletedUser, setViewWin, setUrl }) => {
+const Folderwin = ({ foldr, path, dirName, setPut, setDocName, setUser, margin, createWin, setDelFile, setDelDir, setDelPut, setDelId, setDelUser, deletedPut, deletedDir, deletedUser, setViewWin, setUrl, delFile }) => {
 
     const [docs, setDocs] = useState()
     const [openFolder, setOpenFolder] = useState(false)
@@ -55,7 +55,7 @@ const Folderwin = ({ foldr, path, dirName, setPut, setDocName, setUser, margin, 
                 <button
                     style={{ rotate: openFolder ? "90deg" : "" }}>{">"}</button>
                 <img className="folderIcon" src={folder} alt="folder" />
-                <p>{foldr}</p>
+                <p style={{textDecoration: delFile === foldr ? "underline" : "none"}}>{foldr}</p>
             </div>
 
             {openFolder && folders ? folders.length !== 0 &&
@@ -79,6 +79,7 @@ const Folderwin = ({ foldr, path, dirName, setPut, setDocName, setUser, margin, 
                         deletedDir={dirName}
                         setViewWin={setViewWin}
                         setUrl={setUrl}
+                        delFile={delFile}
                     />
                 )) : <></>}
 
@@ -95,7 +96,7 @@ const Folderwin = ({ foldr, path, dirName, setPut, setDocName, setUser, margin, 
                         }}
                         style={{ marginLeft: `${margin + 15}px` }}>
                         <Img type={file.type} width="20px" />
-                        <p>{file.name}</p>
+                        <p style={{textDecoration: delFile === file.name ? "underline" : "none"}}>{file.name}</p>
                     </div>
                 ))}
         </>

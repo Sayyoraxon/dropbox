@@ -185,6 +185,7 @@ const Main = ({ id, signOut }) => {
                                 deletedDir={id}
                                 setViewWin={setViewWin}
                                 setUrl={setUrl}
+                                delFile={delFile}
                             />
                         )) : <></>}
 
@@ -202,7 +203,7 @@ const Main = ({ id, signOut }) => {
                                 }}
                                 style={{ marginLeft: `${margin + 15}px` }}>
                                 <Img type={file.type} width="20px" />
-                                <p>{file.name}</p>
+                                <p style={{textDecoration: delFile === file.name ? "underline" : "none"}}>{file.name}</p>
                             </div>
                         ))}
 
@@ -250,7 +251,7 @@ const Main = ({ id, signOut }) => {
 
                         {files && files.length !== 0 &&
                             files.map((file) => (
-                                <a href={file.url} target="_blank">
+                                <a href={file.url} target="_blank" style={{textDecoration: delFile===file.nam ? "underline" : "none"}}>
                                     <div>
                                         <Img type={file.type} width="50px" />
                                         <p>{file.name}</p>
