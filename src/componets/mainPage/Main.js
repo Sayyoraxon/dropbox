@@ -16,6 +16,7 @@ import { v4 as uuidv4 } from 'uuid';
 import wI from "../images/wordIcon.png"
 import Img from "../Windows/Img";
 import { CopyToClipboard } from 'react-copy-to-clipboard';
+import Folder from "../Folder";
 
 
 const Main = ({ id, signOut }) => {
@@ -59,7 +60,9 @@ const Main = ({ id, signOut }) => {
     const folders = currentUser && currentUser.folders
 
     const baseUrl = window.location.hostname
-    const url = baseUrl + '/folder?'
+    const url = baseUrl + '/home?'
+
+    
 
     const obj = {
         fold: put,
@@ -70,7 +73,14 @@ const Main = ({ id, signOut }) => {
 
     const query = searchParams.toString()
 
-    console.log(window.location.hostname)
+    console.log(url + query)
+
+    const urll = window.location.href
+
+    const searchparams = new URL(urll).searchParams
+
+    const length = searchparams.size
+
 
 
     useEffect(() => {
@@ -143,7 +153,11 @@ const Main = ({ id, signOut }) => {
         getUsers()
     }
 
+
+
     return (
+        <>
+        {length === 0 ?
         <div className="main">
             <div className="m_left">
                 <div>
@@ -315,7 +329,9 @@ const Main = ({ id, signOut }) => {
                 </div>
             </div>}
 
-        </div>
+        </div> : 
+        <Folder/>}
+        </>
     )
 }
 
