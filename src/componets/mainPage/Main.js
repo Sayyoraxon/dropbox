@@ -58,8 +58,8 @@ const Main = ({ id, signOut }) => {
 
     const folders = currentUser && currentUser.folders
 
-
-    const url = 'https://main.d3cwbyga1wx158.amplifyapp.com/folder?'
+    const baseUrl = window.location.hostname
+    const url = baseUrl + '/folder?'
 
     const obj = {
         fold: put,
