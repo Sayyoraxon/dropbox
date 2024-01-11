@@ -59,7 +59,7 @@ const Main = ({ id, signOut }) => {
     const folders = currentUser && currentUser.folders
 
 
-    const url = 'localhost:3000/folder?'
+    const url = 'https://main.d3cwbyga1wx158.amplifyapp.com/folder?'
 
     const obj = {
         fold: put,
