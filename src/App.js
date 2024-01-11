@@ -2,7 +2,6 @@
 import { useEffect, useState } from 'react';
 import { createBrowserRouter, createRoutesFromElements, Route, RouterProvider } from 'react-router-dom';
 import './App.css';
-import Folder from './componets/Folder';
 import Home from './componets/homePage/Home';
 import LoginPage from './componets/homePage/LoginPage';
 import Main from './componets/mainPage/Main';
@@ -35,7 +34,6 @@ function App() {
         <Route index element = {<LoginPage enter={enter} setId={setId} login={login}/>} />
         <Route path="home" element={<Main id={id} signOut = {signOut}/>}>
         </Route>
-        <Route path={'*'} element={<Folder/>}/>
       </Route>
     )
   )
