@@ -70,7 +70,8 @@ const Main = ({ id, signOut }) => {
 
     const query = searchParams.toString()
 
-    console.log(url + query)
+    console.log(window.location.hostname)
+
 
     useEffect(() => {
 
