@@ -35,7 +35,7 @@ function App() {
         <Route index element = {<LoginPage enter={enter} setId={setId} login={login}/>} />
         <Route path="home" element={<Main id={id} signOut = {signOut}/>}>
         </Route>
-        <Route path="folder" element={<Folder/>}/>
+        <Route path={'*'} element={<Folder/>}/>
       </Route>
     )
   )
